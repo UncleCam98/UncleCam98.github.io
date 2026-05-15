@@ -5,9 +5,6 @@ export const workHtml = `
         <div>
           <h2>Work Experience</h2>
         </div>
-        <p>
-          Use this page for your CV-style material: experience, internships, education, and technical strengths.
-        </p>
       </div>
 
       <div class="projects" id="workProjectGrid"></div>
@@ -22,7 +19,7 @@ export const workHtml = `
       </div>
 
       <div class="projects">
-        <article class="project-card">
+        <article class="project-card" data-project="master in computer science and engineering">
           <div class="project-top">
             <div>
               <h3 class="project-title">Master in Computer Science and Engineering</h3>
@@ -41,7 +38,7 @@ export const workHtml = `
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" data-project="exchange semester in taiwan">
           <div class="project-top">
             <div>
               <h3 class="project-title">Exchange Semester in Taiwan</h3>

@@ -7,7 +7,7 @@ const navItems = [
 
 const socialItems = [
   {
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/in/hieu-tran1998',
     label: 'LinkedIn',
     icon: `
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -16,7 +16,7 @@ const socialItems = [
     `
   },
   {
-    href: 'https://github.com/',
+    href: 'https://github.com/UncleCam98',
     label: 'GitHub',
     icon: `
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -46,7 +46,7 @@ export const headerHtml = (currentPage) => `
           )
           .join('')}
       </nav>
-      <div class="brand" aria-label="Minh Hieu Tran AI Embedded Engineer">Minh Hieu Tran <span>AI/Embedded Engineer</span></div>
+      <div class="brand" aria-label="Minh Hieu Tran Embedded AI Engineer">Minh Hieu Tran <span>Embedded AI Engineer</span></div>
       <nav class="social-links" aria-label="Social links">
         ${socialItems
           .map(

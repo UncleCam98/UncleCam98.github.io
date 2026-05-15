@@ -18,17 +18,21 @@ const transitionDuration = 320;
 const pageConfigs = {
   about: {
     title: 'Home',
-    eyebrow: 'Portfolio · Introduction · Profile',
-    headline: 'A portfolio built to present your profile clearly.',
+    eyebrow: '',
+    headline: 'Welcome to my portfolio!',
     lead:
-      'This page introduces who you are and gives visitors a clear entry point into your resume, projects, and contact details.',
+      "I'm Hieu Tran, an engineer in AI and embedded systems. In this portfolio, I showcase my projects and provide insights into my journey. This is a space where I explore innovative technologies, combine software and intelligent systems, and turn creative ideas into practical experiences.",
     primaryHref: 'projects.html',
-    primaryLabel: 'View Projects',
-    secondaryHref: 'contact.html',
-    secondaryLabel: 'Get in Touch',
+    primaryLabel: 'Projects',
+    ctaLinks: [
+      { href: 'https://github.com/UncleCam98', label: 'GitHub', targetBlank: true },
+      { href: 'https://www.linkedin.com/in/hieu-tran1998', label: 'LinkedIn', targetBlank: true }
+    ],
     statTone: 'Clear, focused, technical',
     showPortrait: true,
-    showSummaryPanel: true,
+    portraitAside: false,
+    portraitRight: true,
+    showSummaryPanel: false,
     sections: [aboutHtml]
   },
   skills: {
@@ -48,10 +52,10 @@ const pageConfigs = {
   },
   projects: {
     title: 'Projects',
-    eyebrow: 'Portfolio · Case Studies · Built Work',
-    headline: 'Projects make your experience concrete.',
+    eyebrow: '',
+    headline: 'Projects',
     lead:
-      'Use this page to show case studies, technical projects, demos, and implementation details in one focused view.',
+      'Welcome to my projects page! Here, I showcase my projects in the field of Embedded systems and AI. Feel free to explore my projects and get a glimpse into my work.',
     statTone: 'Practical, concrete, delivery-focused',
     showPortrait: false,
     showSummaryPanel: false,
@@ -59,10 +63,10 @@ const pageConfigs = {
   },
   work: {
     title: 'Work Experience',
-    eyebrow: 'Portfolio · Work Experience · Background',
-    headline: 'A strong place for your CV, experience, and skills.',
+    eyebrow: '',
+    headline: 'Resume',
     lead:
-      'This page is designed for work history, internships, education, and the technical skills you want recruiters to notice quickly.',
+      "I am a Master's graduate in Computer Science and Engineering with experience in embedded systems, AI, and computer vision, gained through thesis work and industry collaborations. I am passionate about developing innovative solutions in embedded systems, especially in real-time systems and communications, where reliability, performance, and efficient system design are essential.",
     primaryHref: 'projects.html',
     primaryLabel: 'View Projects',
     secondaryHref: 'assets/cv.pdf',
@@ -146,6 +150,10 @@ const skillMatchMap = new Map(
 const projectCards = [];
 
 const buildLink = (label, href) => {
+  if (!href) {
+    return `<span class="project-link project-link--pending" aria-disabled="true">${label}</span>`;
+  }
+
   const isExternal = /^https?:\/\//i.test(href);
 
   return `<a href="${href}"${isExternal ? ' target="_blank" rel="noreferrer"' : ''}>${label}</a>`;
@@ -155,11 +163,17 @@ const renderLinks = (project) => {
   const links = [];
 
   if (project.repo) {
-    links.push(buildLink('Code', project.repo));
+    links.push(buildLink(project.repoLabel || 'Code', project.repo));
   }
 
   if (project.demo) {
     links.push(buildLink('Demo', project.demo));
+  }
+
+  if (Array.isArray(project.actionLinks)) {
+    project.actionLinks.forEach((link) => {
+      links.push(buildLink(link.label, link.href));
+    });
   }
 
   return links.length ? `<div class="project-links">${links.join('')}</div>` : '';
@@ -196,11 +210,23 @@ const renderProjectMedia = (project) => {
 };
 
 const renderProjectCodeLink = (project) => {
-  if (!project.repo) {
+  const links = [];
+
+  if (project.repo) {
+    links.push(buildLink(project.repoLabel || 'View Code', project.repo));
+  }
+
+  if (Array.isArray(project.actionLinks)) {
+    project.actionLinks.forEach((link) => {
+      links.push(buildLink(link.label, link.href));
+    });
+  }
+
+  if (!links.length) {
     return '';
   }
 
-  return `<div class="project-links project-links--primary">${buildLink('View Code', project.repo)}</div>`;
+  return `<div class="project-links project-links--primary">${links.join('')}</div>`;
 };
 
 if (grid) {
@@ -275,6 +301,12 @@ if (workGrid) {
     projectCards.push(card);
   });
 }
+
+document.querySelectorAll('.project-card[data-project]').forEach((card) => {
+  if (!projectCards.includes(card)) {
+    projectCards.push(card);
+  }
+});
 
 if (skillsGrid) {
   const groupedSkillBlocks = [

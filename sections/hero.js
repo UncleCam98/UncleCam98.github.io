@@ -2,11 +2,30 @@ export const heroHtml = (page) => `
   <section class="hero">
     <div class="wrap hero-grid${page.showSummaryPanel === false ? ' hero-grid--single' : ''}">
       <div class="hero-card">
-        <div class="eyebrow">${page.eyebrow}</div>
-        <h1>${page.headline}</h1>
+        ${page.eyebrow ? `<div class="eyebrow">${page.eyebrow}</div>` : ''}
+        ${page.portraitRight ? '' : `<h1>${page.headline}</h1>`}
 
-        <div class="hero-intro${page.showPortrait === false ? ' hero-intro--copy-only' : ''}">
-          ${page.showPortrait === false ? '' : `
+        <div class="hero-intro${page.showPortrait === false || page.portraitAside ? ' hero-intro--copy-only' : ''}${page.portraitRight ? ' hero-intro--portrait-right' : ''}">
+          <div class="hero-copy">
+            ${page.portraitRight ? `<h1>${page.headline}</h1>` : ''}
+            <p class="lead">${page.lead}</p>
+            ${(page.primaryHref && page.primaryLabel) || (Array.isArray(page.ctaLinks) && page.ctaLinks.length) ? `
+            <div class="cta-row">
+              ${page.primaryHref && page.primaryLabel ? `<a class="hero-link" href="${page.primaryHref}">${page.primaryLabel}</a>` : ''}
+              ${page.secondaryHref && page.secondaryLabel ? `<a class="hero-link" href="${page.secondaryHref}"${page.secondaryTargetBlank ? ' target="_blank" rel="noreferrer"' : ''}>${page.secondaryLabel}</a>` : ''}
+              ${Array.isArray(page.ctaLinks)
+                ? page.ctaLinks
+                    .map(
+                      (link) =>
+                        `<a class="hero-link" href="${link.href}"${link.targetBlank ? ' target="_blank" rel="noreferrer"' : ''}>${link.label}</a>`
+                    )
+                    .join('')
+                : ''}
+            </div>
+            ` : ''}
+          </div>
+
+          ${page.showPortrait === false || page.portraitAside ? '' : `
           <div class="hero-portrait">
             <div class="portrait-frame">
               <img
@@ -18,27 +37,27 @@ export const heroHtml = (page) => `
               />
               <div class="portrait-fallback">DP</div>
             </div>
-            <div class="portrait-copy">
-              <strong>Minh Hieu Tran</strong>
-              <span>AI and embedded systems engineer</span>
-            </div>
           </div>
           `}
-
-          <div class="hero-copy">
-            <p class="lead">${page.lead}</p>
-            ${page.primaryHref && page.primaryLabel ? `
-            <div class="cta-row">
-              <a class="hero-link" href="${page.primaryHref}">${page.primaryLabel}</a>
-              ${page.secondaryHref && page.secondaryLabel ? `<a class="hero-link" href="${page.secondaryHref}"${page.secondaryTargetBlank ? ' target="_blank" rel="noreferrer"' : ''}>${page.secondaryLabel}</a>` : ''}
-            </div>
-            ` : ''}
-          </div>
         </div>
       </div>
 
       ${page.showSummaryPanel === false ? '' : `
-      <aside class="glass">
+      <aside class="glass${page.portraitAside ? ' glass--portrait' : ''}">
+        ${page.portraitAside ? `
+        <div class="hero-portrait hero-portrait--aside">
+          <div class="portrait-frame">
+            <img
+              class="portrait-image"
+              src="assets/profile.png"
+              alt="Portrait"
+              onload="this.parentElement.querySelector('.portrait-fallback').style.display='none';"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.portrait-fallback').style.display='flex';"
+            />
+            <div class="portrait-fallback">DP</div>
+          </div>
+        </div>
+        ` : `
         <div class="stat-grid">
           <div class="stat">
             <small>Focus</small>
@@ -62,6 +81,7 @@ export const heroHtml = (page) => `
           This layout works well for an engineer, developer, student, or freelancer who
           wants to present projects, experience, and contact details in a clear way.
         </p>
+        `}
       </aside>
       `}
     </div>

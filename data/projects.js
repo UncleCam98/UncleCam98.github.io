@@ -1,10 +1,10 @@
 export const projects = [
   {
     title: 'Under The Sea',
-    kind: 'Launch page',
+    kind: 'Course DT8007 - Design of Embedded and Intelligent Systems',
     active: '2025',
     text: 'A concept for a conversion-focused landing page where copy, hierarchy, and call-to-actions guide the visitor toward contact.',
-    stack: ['Copywriting', 'UI design', 'Responsive layout', 'Component structure'],
+    stack: ['Computer Vision', 'Embedded', 'Robotics', 'HTTP', 'TCP/IP'],
     image: './assets/robot.gif',
     repo: 'https://github.com/UncleCam98/Under-the-sea'
   },
@@ -13,8 +13,12 @@ export const projects = [
     kind: 'Master Thesis',
     active: '2026',
     text: 'A project focused on translating text-generated human motion into executable actions for an avatar-based system.',
-    stack: ['Human motion', 'Avatar actions', 'Text generation', 'Research'],
-    image: './assets/avatar.gif'
+    stack: ['LLM', 'Machine Learning', 'Computer Vision', 'XR', 'C#', 'Python', 'TCP/IP'],
+    image: './assets/avatar.gif',
+    actionLinks: [
+      { label: 'DiVA' },
+      { label: 'XRSalento' }
+    ]
   },
   {
     title: 'Smart Greenhouse',
@@ -26,15 +30,17 @@ export const projects = [
       'Implemented calendar and timestamp support together with minute-based temperature logging over 7 days using a Linked List with overwrite handling when memory was full.',
       'Tracked sunlight and regulated mirrors, shades, and LED lighting to maintain a 16-hour light and 8-hour darkness cycle for healthy plant growth.'
     ],
-    stack: ['Arduino Due', 'SAM3X8E', 'Embedded systems', 'Sensors', 'PWM', 'Linked Lists'],
+    stack: ['Embedded'],
     repo: 'https://github.com/UncleCam98/Green_House_Project'
   },
   {
-    title: 'Case Study Layout',
+    title: 'Improving audio intelligibility in intercom devices',
     kind: 'Bachelor Thesis',
-    active: '2025',
+    active: '2024',
     text: 'A case study structure with a clear problem statement, process, and outcome so your work is easier to understand.',
-    stack: ['Storytelling', 'Project structure', 'UX copy', 'Content design'],
-    repo: 'https://github.com/'
+    stack: ['DSP', 'Matlab', 'C', 'Embedded'],
+    image: './assets/intercom.png',
+    repo: 'http://www.diva-portal.org/smash/record.jsf?pid=diva2:1870043',
+    repoLabel: 'DiVA'
   }
 ];

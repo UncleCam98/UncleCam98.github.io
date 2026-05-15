@@ -53,10 +53,10 @@ body {
   color: var(--text);
   font-family: 'Lato', 'Segoe UI', sans-serif;
   background:
-    radial-gradient(circle at 12% 12%, rgba(186, 112, 80, 0.14), transparent 22%),
-    radial-gradient(circle at 88% 14%, rgba(18, 35, 63, 0.12), transparent 20%),
-    radial-gradient(circle at 50% 100%, rgba(210, 171, 122, 0.14), transparent 26%),
-    linear-gradient(180deg, #fbf6ef 0%, #f4ecdf 42%, #ecdfcf 100%);
+    radial-gradient(circle at 12% 12%, rgba(140, 170, 205, 0.12), transparent 22%),
+    radial-gradient(circle at 88% 14%, rgba(18, 35, 63, 0.1), transparent 20%),
+    radial-gradient(circle at 50% 100%, rgba(203, 219, 236, 0.22), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #f0f5fb 42%, #e7eef7 100%);
   overflow-x: hidden;
 }
 
@@ -66,8 +66,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(99, 76, 57, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 76, 57, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(18, 35, 63, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 35, 63, 0.035) 1px, transparent 1px);
   background-size: 32px 32px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 78%);
 }
@@ -78,7 +78,7 @@ body::after {
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(115deg, transparent 20%, rgba(210, 171, 122, 0.12) 50%, transparent 80%);
+  background: linear-gradient(115deg, transparent 20%, rgba(132, 160, 194, 0.12) 50%, transparent 80%);
   transform: translateX(-16%);
 }
 
@@ -294,6 +294,7 @@ section {
     linear-gradient(135deg, rgba(186, 112, 80, 0.18), rgba(210, 171, 122, 0.08));
   border: 1px solid rgba(186, 112, 80, 0.14);
   transform: rotate(12deg);
+  pointer-events: none;
 }
 
 .hero-card::before {
@@ -304,6 +305,7 @@ section {
   height: 220px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(18, 35, 63, 0.14), transparent 70%);
+  pointer-events: none;
 }
 
 .eyebrow {
@@ -347,6 +349,21 @@ h1 {
   grid-template-columns: 1fr;
 }
 
+.hero-intro--portrait-right {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
+}
+
+.hero-intro--portrait-right .hero-portrait {
+  height: 100%;
+  align-content: stretch;
+  transform: translateY(-8px);
+}
+
+.hero-intro--portrait-right .portrait-frame {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
 .hero-portrait {
   display: grid;
   gap: 12px;
@@ -368,6 +385,8 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  transform: scale(1.16);
 }
 
 .portrait-fallback {
@@ -469,6 +488,20 @@ footer {
     linear-gradient(180deg, rgba(250, 243, 235, 0.98), rgba(238, 228, 214, 0.92));
 }
 
+.glass--portrait {
+  align-items: stretch;
+  padding: 20px;
+}
+
+.hero-portrait--aside {
+  height: 100%;
+}
+
+.hero-portrait--aside .portrait-frame {
+  height: 100%;
+  min-height: 100%;
+}
+
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -532,6 +565,109 @@ footer {
 
 .timeline {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.about-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.about-feature-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.about-card {
+  height: 100%;
+}
+
+.about-card p {
+  margin: 0;
+}
+
+.about-card p + p {
+  margin-top: 20px;
+}
+
+.about-card--gallery {
+  display: grid;
+  gap: 18px;
+}
+
+.about-gallery-head {
+  display: grid;
+  gap: 10px;
+}
+
+.about-gallery-head h3 {
+  margin: 0;
+}
+
+.about-gallery-head p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.about-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.about-photo-grid--mixed {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-photo {
+  min-height: 220px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 35, 63, 0.12);
+}
+
+.about-photo--portrait {
+  aspect-ratio: 3 / 5;
+  min-height: clamp(320px, 34vw, 460px);
+}
+
+.about-photo--wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.about-photo--wide img {
+  object-position: center 42%;
+}
+
+.about-photo--placeholder {
+  display: flex;
+  align-items: end;
+  padding: 16px;
+  background:
+    linear-gradient(180deg, rgba(18, 35, 63, 0.04), rgba(18, 35, 63, 0.14)),
+    linear-gradient(145deg, rgba(255, 249, 242, 0.98), rgba(231, 221, 207, 0.94));
+}
+
+.about-photo--placeholder span {
+  color: var(--title);
+  font-family: 'Lil Grotesk', 'Segoe UI', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .projects {
@@ -725,23 +861,29 @@ footer {
   margin-top: auto;
 }
 
-.project-links a {
+.project-links a,
+.project-link {
   padding: 10px 12px;
   border-radius: 12px;
   font-weight: 700;
   border: 1px solid var(--line);
   background: rgba(255, 250, 244, 0.72);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-link--pending {
+  cursor: default;
 }
 
 .project-links--primary {
   margin-top: 4px;
 }
 
-.project-links--primary a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.project-links--primary a,
+.project-links--primary .project-link {
   min-width: 132px;
   background: var(--title);
   color: #fffaf4;
@@ -932,8 +1074,15 @@ footer {
   .hero-grid,
   .projects,
   .timeline,
-  .skill-card--full {
+  .skill-card--full,
+  .about-layout,
+  .about-feature-stack,
+  .about-photo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-photo--wide {
+    grid-column: auto;
   }
 
   .contact-grid,
