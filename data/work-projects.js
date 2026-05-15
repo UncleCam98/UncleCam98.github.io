@@ -1,21 +1,21 @@
 export const workProjects = [
   {
-    title: 'Freelance Work',
-    kind: 'Client work',
+    title: 'Master Thesis at Ericsson',
+    kind: 'Ericsson',
+    location: 'Lund, Sweden',
     active: '2024 - 2026',
-    text: 'A good place to describe freelance or consulting work, with emphasis on delivery, collaboration, and measurable results.',
+    text: 'Worked on a master thesis project in collaboration with Ericsson, focused on technical development and evaluation.',
+    bullets: [
+      'Developed and evaluated technical solutions within the thesis scope.',
+      'Collaborated with supervisors and industry stakeholders throughout the project.',
+      'Documented findings and progress in a structured engineering workflow.'
+    ],
     stack: ['Client communication', 'Delivery', 'Iteration', 'Presentation']
   },
   {
-    title: 'Internship or Trainee Role',
-    kind: 'Experience',
-    active: '2024',
-    text: 'Use this card to explain what you contributed, which tools you used, and what you learned in a real team environment.',
-    stack: ['Teamwork', 'Development flow', 'Feedback', 'Responsibility']
-  },
-  {
-    title: 'Academic Work',
-    kind: 'Education',
+    title: 'Bachelor Thesis at Axis Communications',
+    kind: 'Axis Communications',
+    location: 'Lund, Sweden',
     active: '2023 - 2025',
     text: 'Perfect for thesis work, course projects, or technical case studies that show how you approach real engineering problems.',
     stack: ['Research', 'Prototyping', 'Analysis', 'Presentation']

@@ -1,38 +1,46 @@
 export const skillGroups = [
   {
-    title: 'Frontend',
+    title: 'Programming Languages',
+    interactive: true,
     skills: [
-      { label: 'HTML', representedProjects: ['Portfolio Site', 'Product Landing Page'] },
-      { label: 'CSS', representedProjects: ['Portfolio Site', 'Design System Sprint'] },
-      { label: 'JavaScript', representedProjects: ['Portfolio Site'] },
-      { label: 'Responsive design', representedProjects: ['Portfolio Site', 'Product Landing Page'] }
+      { label: 'C', representedProjects: ['Bachelor Thesis at Axis Communications'] },
+      { label: 'C#', representedProjects: ['Master Thesis Worker'] },
+      { label: 'Python', representedProjects: ['Bachelor Thesis at Axis Communications'] },
+      { label: 'Java', representedProjects: ['Bachelor Thesis at Axis Communications'] },
+      { label: 'SQL' },
+      { label: 'PLC' }
     ]
   },
   {
-    title: 'Design and UX',
+    title: 'Areas',
+    interactive: true,
     skills: [
-      { label: 'UI design', representedProjects: ['Product Landing Page', 'Design System Sprint'] },
-      { label: 'Accessibility', representedProjects: ['Design System Sprint', 'Case Study Layout'] },
-      { label: 'Copywriting', representedProjects: ['Product Landing Page', 'Case Study Layout'] },
-      { label: 'Storytelling', representedProjects: ['Case Study Layout'] }
+      { label: 'Embedded systems' },
+      { label: 'AI', representedProjects: ['Bachelor Thesis at Axis Communications'] },
+      { label: 'Network communication' },
+      { label: 'Computer vision', representedProjects: ['Bachelor Thesis at Axis Communications'] },
+      { label: 'Extended reality', representedProjects: ['Master Thesis Worker', 'Bachelor Thesis at Axis Communications'] }
     ]
   },
   {
-    title: 'Ways of Working',
+    title: 'Tools',
+    interactive: false,
     skills: [
-      { label: 'Research', representedProjects: ['Academic Work', 'Case Study Layout'] },
-      { label: 'Prototyping', representedProjects: ['Academic Work', 'Design System Sprint'] },
-      { label: 'Iteration', representedProjects: ['Freelance Work', 'Product Landing Page'] },
-      { label: 'Presentation', representedProjects: ['Freelance Work', 'Academic Work'] }
+      { label: 'Git', representedProjects: ['Master Thesis Worker', 'Bachelor Thesis at Axis Communications'] },
+      { label: 'Linux' },
+      { label: 'Unity', representedProjects: ['Master Thesis Worker', 'Bachelor Thesis at Axis Communications'] },
+      { label: 'CMake' },
+      { label: 'Meson' },
+      { label: 'MATLAB', representedProjects: ['Bachelor Thesis at Axis Communications'] }
     ]
   },
   {
-    title: 'Platforms',
+    title: 'Languages',
+    interactive: false,
     skills: [
-      { label: 'GitHub Pages', representedProjects: ['Portfolio Site'] },
-      { label: 'Static sites', representedProjects: ['Portfolio Site', 'Product Landing Page'] },
-      { label: 'Design systems', representedProjects: ['Design System Sprint'] },
-      { label: 'Case studies', representedProjects: ['Case Study Layout'] }
+      { label: 'Swedish' },
+      { label: 'English' },
+      { label: 'Vietnamese' }
     ]
   }
 ];

@@ -17,3 +17,5 @@ Det snabbaste sattet att anpassa sidan ar att uppdatera:
 - `data/*.js` for projekt och kompetenser
 - `styles.css` for farger och uttryck
 - `assets/profile.jpg` om du vill visa ett portratt
+
+Font can be founded: https://github.com/noirblancrouge/LilGrotesk

@@ -30,7 +30,7 @@ export const heroHtml = (page) => `
             ${page.primaryHref && page.primaryLabel ? `
             <div class="cta-row">
               <a class="hero-link" href="${page.primaryHref}">${page.primaryLabel}</a>
-              ${page.secondaryHref && page.secondaryLabel ? `<a class="hero-link" href="${page.secondaryHref}">${page.secondaryLabel}</a>` : ''}
+              ${page.secondaryHref && page.secondaryLabel ? `<a class="hero-link" href="${page.secondaryHref}"${page.secondaryTargetBlank ? ' target="_blank" rel="noreferrer"' : ''}>${page.secondaryLabel}</a>` : ''}
             </div>
             ` : ''}
           </div>

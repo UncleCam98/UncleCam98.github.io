@@ -12,11 +12,12 @@ import { skillGroups } from './data/skills.js';
 
 const app = document.getElementById('app');
 const currentPage = document.body.dataset.page || 'about';
+const isProjectsPage = currentPage === 'projects';
 const transitionDuration = 320;
 
 const pageConfigs = {
   about: {
-    title: 'About Me',
+    title: 'Home',
     eyebrow: 'Portfolio · Introduction · Profile',
     headline: 'A portfolio built to present your profile clearly.',
     lead:
@@ -57,15 +58,16 @@ const pageConfigs = {
     sections: [projectsHtml]
   },
   work: {
-    title: 'Resume',
-    eyebrow: 'Portfolio · Resume · Experience',
+    title: 'Work Experience',
+    eyebrow: 'Portfolio · Work Experience · Background',
     headline: 'A strong place for your CV, experience, and skills.',
     lead:
       'This page is designed for work history, internships, education, and the technical skills you want recruiters to notice quickly.',
     primaryHref: 'projects.html',
     primaryLabel: 'View Projects',
-    secondaryHref: 'contact.html',
-    secondaryLabel: 'Contact Me',
+    secondaryHref: 'assets/cv.pdf',
+    secondaryLabel: 'Download CV',
+    secondaryTargetBlank: true,
     statTone: 'Professional, clear, trustworthy',
     showPortrait: false,
     showSummaryPanel: false,
@@ -77,6 +79,7 @@ const pageConfigs = {
     headline: 'Make the next step easy and obvious.',
     lead:
       'Keep this page simple and direct so visitors instantly understand how to reach you.',
+    showHero: false,
     primaryHref: 'projects.html',
     primaryLabel: 'View Projects',
     secondaryHref: 'index.html',
@@ -96,11 +99,25 @@ if (app) {
   app.innerHTML = `
     ${headerHtml(currentPage)}
     <main id="top">
-      ${heroHtml(pageConfig)}
+      ${pageConfig.showHero === false ? '' : heroHtml(pageConfig)}
       ${pageConfig.sections.join('')}
     </main>
     ${footerHtml(currentPage)}
   `;
+}
+
+if (currentPage === 'contact') {
+  const nextField = document.getElementById('contactNext');
+  const successMessage = document.getElementById('contactSuccess');
+  const params = new URLSearchParams(window.location.search);
+
+  if (nextField) {
+    nextField.value = `${window.location.origin}${window.location.pathname}?contact=success#contact`;
+  }
+
+  if (successMessage && params.get('contact') === 'success') {
+    successMessage.hidden = false;
+  }
 }
 
 const grid = document.getElementById('projectGrid');
@@ -117,10 +134,12 @@ const normalizeSkill = (value) =>
 
 const skillMatchMap = new Map(
   skillGroups.flatMap((group) =>
-    group.skills.map((skill) => [
-      normalizeSkill(skill.label),
-      Array.from(new Set(skill.representedProjects.map((project) => normalizeSkill(project))))
-    ])
+    group.skills
+      .filter((skill) => Array.isArray(skill.representedProjects) && skill.representedProjects.length)
+      .map((skill) => [
+        normalizeSkill(skill.label),
+        Array.from(new Set(skill.representedProjects.map((project) => normalizeSkill(project))))
+      ])
   )
 );
 
@@ -146,25 +165,87 @@ const renderLinks = (project) => {
   return links.length ? `<div class="project-links">${links.join('')}</div>` : '';
 };
 
+const renderProjectCopy = (project) => {
+  if (Array.isArray(project.bullets) && project.bullets.length) {
+    return `
+      ${project.text ? `<p class="project-copy-summary">${project.text}</p>` : ''}
+      <ul class="project-copy-list">
+        ${project.bullets.map((item) => `<li>${item}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  return `<p>${project.text}</p>`;
+};
+
+const renderProjectMedia = (project) => {
+  if (project.image) {
+    return `
+      <div class="project-media">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" />
+      </div>
+    `;
+  }
+
+  return `
+    <div class="project-media project-media--placeholder" aria-hidden="true">
+      <strong>${project.title}</strong>
+      <span>Add GIF or project image</span>
+    </div>
+  `;
+};
+
+const renderProjectCodeLink = (project) => {
+  if (!project.repo) {
+    return '';
+  }
+
+  return `<div class="project-links project-links--primary">${buildLink('View Code', project.repo)}</div>`;
+};
+
 if (grid) {
+  if (isProjectsPage) {
+    grid.classList.add('projects--linear');
+  }
+
   projects.forEach((project) => {
     const card = document.createElement('article');
-    card.className = 'project-card';
+    card.className = isProjectsPage ? 'project-card project-card--feature' : 'project-card';
     card.dataset.project = normalizeSkill(project.title);
-    card.innerHTML = `
-      <div class="project-top">
-        <div>
-          <h3 class="project-title">${project.title}</h3>
-          <div class="project-kind">${project.kind}</div>
+    card.innerHTML = isProjectsPage
+      ? `
+        <div class="project-feature-layout">
+          <div class="project-feature-copy">
+            <div class="project-top">
+              <div>
+                <h3 class="project-title">${project.title}</h3>
+                <div class="project-kind">${project.kind}</div>
+              </div>
+              <div class="project-active">${project.active}</div>
+            </div>
+            ${renderProjectCopy(project)}
+            <div class="meta">
+              ${project.stack.map((item) => `<span>${item}</span>`).join('')}
+            </div>
+            ${renderProjectCodeLink(project)}
+          </div>
+          ${renderProjectMedia(project)}
         </div>
-        <div class="project-active">${project.active}</div>
-      </div>
-      <p>${project.text}</p>
-      <div class="meta">
-        ${project.stack.map((item) => `<span>${item}</span>`).join('')}
-      </div>
-      ${renderLinks(project)}
-    `;
+      `
+      : `
+        <div class="project-top">
+          <div>
+            <h3 class="project-title">${project.title}</h3>
+            <div class="project-kind">${project.kind}</div>
+          </div>
+          <div class="project-active">${project.active}</div>
+        </div>
+        ${renderProjectCopy(project)}
+        <div class="meta">
+          ${project.stack.map((item) => `<span>${item}</span>`).join('')}
+        </div>
+        ${renderLinks(project)}
+      `;
     grid.appendChild(card);
     projectCards.push(card);
   });
@@ -180,10 +261,11 @@ if (workGrid) {
         <div>
           <h3 class="project-title">${project.title}</h3>
           <div class="project-kind">${project.kind}</div>
+          ${project.location ? `<div class="project-location">${project.location}</div>` : ''}
         </div>
         <div class="project-active">${project.active}</div>
       </div>
-      <p>${project.text}</p>
+      ${renderProjectCopy(project)}
       <div class="meta">
         ${project.stack.map((item) => `<span>${item}</span>`).join('')}
       </div>
@@ -195,28 +277,46 @@ if (workGrid) {
 }
 
 if (skillsGrid) {
-  const card = document.createElement('article');
-  card.className = 'timeline-card skill-card skill-card--full';
-  card.innerHTML = skillGroups
-    .map(
-      (group) => `
-        <section class="skill-group">
-          <h3>${group.title}</h3>
-          <div class="skill-list">
-            ${group.skills
-              .map(
-                (skill) =>
-                  `<button class="skill-chip" type="button" data-skill="${normalizeSkill(skill.label)}">${skill.label}</button>`
-              )
-              .join('')}
-          </div>
-        </section>
-      `
-    )
-    .join('');
-  skillsGrid.appendChild(card);
+  const groupedSkillBlocks = [
+    {
+      groups: skillGroups.filter((group) => group.interactive),
+      classes: 'timeline-card skill-card skill-card--full'
+    },
+    {
+      groups: skillGroups.filter((group) => !group.interactive),
+      classes: 'timeline-card skill-card skill-card--full skill-card--static-block'
+    }
+  ].filter((block) => block.groups.length);
 
-  const chips = Array.from(skillsGrid.querySelectorAll('.skill-chip'));
+  groupedSkillBlocks.forEach((block) => {
+    const card = document.createElement('article');
+    card.className = block.classes;
+    card.innerHTML = block.groups
+      .map(
+        (group) => `
+          <section class="skill-group">
+            <h3>${group.title}</h3>
+            <div class="skill-list">
+              ${group.skills
+                .map((skill) => {
+                  const hasProjectMatch = skillMatchMap.has(normalizeSkill(skill.label));
+
+                  if (group.interactive && hasProjectMatch) {
+                    return `<button class="skill-chip" type="button" data-skill="${normalizeSkill(skill.label)}">${skill.label}</button>`;
+                  }
+
+                  return `<span class="skill-chip skill-chip--static">${skill.label}</span>`;
+                })
+                .join('')}
+            </div>
+          </section>
+        `
+      )
+      .join('');
+    skillsGrid.appendChild(card);
+  });
+
+  const chips = Array.from(skillsGrid.querySelectorAll('button.skill-chip'));
   let activeSkill = '';
 
   const applySkillFilter = () => {
