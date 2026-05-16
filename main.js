@@ -69,7 +69,7 @@ const pageConfigs = {
       "I am a Master's graduate in Computer Science and Engineering with experience in embedded systems, AI, and computer vision, gained through thesis work and industry collaborations. I am passionate about developing innovative solutions in embedded systems, especially in real-time systems and communications, where reliability, performance, and efficient system design are essential.",
     primaryHref: 'projects.html',
     primaryLabel: 'View Projects',
-    secondaryHref: 'assets/cv.pdf',
+    secondaryHref: 'assets/CV.pdf',
     secondaryLabel: 'Download CV',
     secondaryTargetBlank: true,
     statTone: 'Professional, clear, trustworthy',
