@@ -3,20 +3,20 @@ export const projects = [
     title: 'Under The Sea',
     kind: 'Course DT8007 - Design of Embedded and Intelligent Systems',
     active: '2025',
-    text: 'A concept for a conversion-focused landing page where copy, hierarchy, and call-to-actions guide the visitor toward contact.',
+    text: 'Developed as part of the Design of Embedded and Intelligent Systems course, this work focused on building a distributed embedded intelligent system for gesture-driven robot interaction. The system controlled two robotic platforms: a helium-balloon fish and a car-like crab robot. Human input was captured through real-time hand gesture recognition using an overhead camera, where palm and fist gestures were translated into attraction and avoidance behaviors. The crab robot used a calibrated grid-based arena representation and A-star pathfinding to navigate toward or away from gesture-defined targets, while the fish robot responded through state-based motion behavior.',
     stack: ['Computer Vision', 'Embedded', 'Robotics', 'HTTP', 'TCP/IP'],
-    image: './assets/robot.gif',
+    image: './assets/robot.mp4',
     repo: 'https://github.com/UncleCam98/Under-the-sea'
   },
   {
     title: 'Grounding Text-Generated Human Motion into Executable Avatar Actions',
     kind: 'Master Thesis',
     active: '2026',
-    text: 'A project focused on translating text-generated human motion into executable actions for an avatar-based system.',
+    text: 'This project focuses on the development of a Unity-based XR/AI pipeline that enables a virtual avatar to interpret objects in a 3D scene, select an appropriate interactable object, and generate executable motion. The system combines LLM-based intent reasoning, 3D affordance detection, text-to-motion generation, and avatar retargeting in Unity.',
     stack: ['LLM', 'Machine Learning', 'Computer Vision', 'XR', 'C#', 'Python', 'TCP/IP'],
     image: './assets/avatar.gif',
     actionLinks: [
-      { label: 'DiVA' },
+      { label: 'View Paper' },
       { label: 'XRSalento' }
     ]
   },
@@ -37,10 +37,12 @@ export const projects = [
     title: 'Improving audio intelligibility in intercom devices',
     kind: 'Bachelor Thesis',
     active: '2024',
-    text: 'A case study structure with a clear problem statement, process, and outcome so your work is easier to understand.',
+    text: `Imagine trying to speak with someone through an intercom while wind, traffic, and background noise make the conversation difficult to understand. This project focused on improving speech intelligibility in intercom devices used in noisy and dynamic environments.
+
+The work involved implementing an adaptive FIR filter based on the Normalized Least Mean Square algorithm in C, with the goal of developing a responsive and memory-efficient solution capable of reducing background noise while preserving speech clarity. A Raspberry Pi-based prototype was developed to simulate an intercom system.`,
     stack: ['DSP', 'Matlab', 'C', 'Embedded'],
     image: './assets/intercom.png',
     repo: 'http://www.diva-portal.org/smash/record.jsf?pid=diva2:1870043',
-    repoLabel: 'DiVA'
+    repoLabel: 'View Paper'
   }
 ];

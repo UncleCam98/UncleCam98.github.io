@@ -457,6 +457,20 @@ footer {
   border-bottom-width: 1px;
 }
 
+body[data-page='about'] .hero-link,
+body[data-page='work'] .hero-link {
+  color: #f8fbff;
+  background: var(--accent-2);
+  border-color: rgba(18, 35, 63, 0.28);
+  box-shadow: 0 18px 36px rgba(18, 35, 63, 0.16);
+}
+
+body[data-page='about'] .hero-link:hover,
+body[data-page='work'] .hero-link:hover {
+  background: #0f1d34;
+  border-color: rgba(15, 29, 52, 0.36);
+}
+
 .hero-link:hover,
 .button:hover,
 .project-links a:hover,
@@ -778,7 +792,8 @@ footer {
   background: linear-gradient(160deg, rgba(18, 35, 63, 0.08), rgba(255, 249, 242, 0.96));
 }
 
-.project-media img {
+.project-media img,
+.project-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;

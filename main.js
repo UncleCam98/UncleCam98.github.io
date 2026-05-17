@@ -194,9 +194,13 @@ const renderProjectCopy = (project) => {
 
 const renderProjectMedia = (project) => {
   if (project.image) {
+    const isVideo = project.image.toLowerCase().endsWith('.mp4');
+
     return `
       <div class="project-media">
-        <img src="${project.image}" alt="${project.title}" loading="lazy" />
+        ${isVideo
+          ? `<video src="${project.image}" autoplay muted loop playsinline preload="metadata" aria-label="${project.title}"></video>`
+          : `<img src="${project.image}" alt="${project.title}" loading="lazy" />`}
       </div>
     `;
   }
@@ -204,7 +208,7 @@ const renderProjectMedia = (project) => {
   return `
     <div class="project-media project-media--placeholder" aria-hidden="true">
       <strong>${project.title}</strong>
-      <span>Add GIF or project image</span>
+      <span>Add project media</span>
     </div>
   `;
 };
