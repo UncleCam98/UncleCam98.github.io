@@ -10,7 +10,7 @@ export const workProjects = [
       'Built a client-server communication bridge using TCP/IP',
       'Converted motion data into executable avatar animation using skeleton retargeting methods'
     ],
-    stack: ['C#', 'Python', 'AI', 'Git', 'Linux', 'Unity']
+    stack: ['C#', 'Python', 'AI', 'TCP/IP', 'Git', 'Linux', 'Unity']
   },
   {
     title: 'Bachelor Thesis at Axis Communications',

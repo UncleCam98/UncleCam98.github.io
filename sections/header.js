@@ -25,11 +25,11 @@ const socialItems = [
     `
   },
   {
-    href: 'https://www.instagram.com/',
-    label: 'Instagram',
+    href: 'contact.html',
+    label: 'Gmail',
     icon: `
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.8A3.95 3.95 0 003.8 7.75v8.5a3.95 3.95 0 003.95 3.95h8.5a3.95 3.95 0 003.95-3.95v-8.5a3.95 3.95 0 00-3.95-3.95zm8.9 1.35a1.1 1.1 0 11-1.1 1.1 1.1 1.1 0 011.1-1.1zM12 6.85A5.15 5.15 0 1112 17.15 5.15 5.15 0 0112 6.85zm0 1.8A3.35 3.35 0 1015.35 12 3.35 3.35 0 0012 8.65z"/>
+        <path d="M3 6.75A2.75 2.75 0 015.75 4h12.5A2.75 2.75 0 0121 6.75v10.5A2.75 2.75 0 0118.25 20H5.75A2.75 2.75 0 013 17.25zm2.2-.95l6.8 5.1 6.8-5.1a.95.95 0 00-.55-.2H5.75a.95.95 0 00-.55.2zm14 2.05l-6.63 4.97a1 1 0 01-1.14 0L4.8 7.85v9.4c0 .52.43.95.95.95h12.5c.52 0 .95-.43.95-.95z"/>
       </svg>
     `
   }
@@ -50,7 +50,7 @@ export const headerHtml = (currentPage) => `
       <nav class="social-links" aria-label="Social links">
         ${socialItems
           .map(
-            (item) => `<a href="${item.href}" target="_blank" rel="noreferrer" aria-label="${item.label}" title="${item.label}">${item.icon}</a>`
+            (item) => `<a href="${item.href}"${/^https?:\/\//i.test(item.href) ? ' target="_blank" rel="noreferrer"' : ''} aria-label="${item.label}" title="${item.label}">${item.icon}</a>`
           )
           .join('')}
       </nav>
