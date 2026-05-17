@@ -12,7 +12,7 @@ export const projects = [
     title: 'Grounding Text-Generated Human Motion into Executable Avatar Actions',
     kind: 'Master Thesis',
     active: '2026',
-    text: 'This project focuses on the development of a Unity-based XR/AI pipeline that enables a virtual avatar to interpret objects in a 3D scene, select an appropriate interactable object, and generate executable motion. The system combines LLM-based intent reasoning, 3D affordance detection, text-to-motion generation, and avatar retargeting in Unity.',
+    text: 'This project focuses on the development of a Unity-based XR/AI pipeline that enables a virtual avatar to interpret objects in a 3D scene, select an appropriate interactable object, and generate executable motion. The system combines LLM-based intent reasoning, 3D affordance detection, text-to-motion generation, and avatar retargeting in Unity.\n\nThe pipeline was designed as a modular frontend-backend system, where Unity handled scene simulation, object data extraction, avatar state capture, and animation playback, while a backend server processed semantic reasoning, spatial affordance grounding, and motion generation.',
     stack: ['LLM', 'Machine Learning', 'Computer Vision', 'XR', 'C#', 'Python', 'TCP/IP'],
     image: './assets/avatar.gif',
     actionLinks: [
@@ -24,13 +24,9 @@ export const projects = [
     title: 'Smart Greenhouse',
     kind: 'Course DT4012 - Computer Systems Engineering I',
     active: '2022',
-    text: 'Built an embedded greenhouse control system to monitor climate conditions, log temperature data, and manage light exposure for plant growth.',
-    bullets: [
-      'Controlled temperature and light intensity using an Arduino Due with a temperature sensor, photosensor, RC servo motor, LEDs, keypad, display, and switch interrupts.',
-      'Implemented calendar and timestamp support together with minute-based temperature logging over 7 days using a Linked List with overwrite handling when memory was full.',
-      'Tracked sunlight and regulated mirrors, shades, and LED lighting to maintain a 16-hour light and 8-hour darkness cycle for healthy plant growth.'
-    ],
+    text: 'This project focused on developing an embedded smart greenhouse system using C, IAR Embedded Workbench, and a SAM3X8E ARM-based platform. The system monitored temperature and light intensity, logged climate data over time, and presented recorded values on an LCD display.\n\nThe implementation combined several hardware components, including a temperature sensor, photoresistors, keypad, LCD display, LEDs, and an RC servo motor. The servo motor was used to simulate a motorized mirror that adjusts toward the detected light source, while LEDs represented both a sunlight compensation system and a temperature alarm.',
     stack: ['Embedded'],
+    image: './assets/dst1.jpg',
     repo: 'https://github.com/UncleCam98/Green_House_Project'
   },
   {

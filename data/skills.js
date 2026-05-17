@@ -27,9 +27,10 @@ export const skillGroups = [
     interactive: false,
     skills: [
       { label: 'Git', representedProjects: ['Master Thesis Worker', 'Bachelor Thesis at Axis Communications'] },
+      { label: 'Jira' },
       { label: 'Linux' },
       { label: 'Unity', representedProjects: ['Master Thesis Worker', 'Bachelor Thesis at Axis Communications'] },
-      { label: 'CMake' },
+      { label: 'Make' },
       { label: 'Meson' },
       { label: 'MATLAB', representedProjects: ['Bachelor Thesis at Axis Communications'] }
     ]

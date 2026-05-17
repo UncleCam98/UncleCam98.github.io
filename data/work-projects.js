@@ -4,7 +4,7 @@ export const workProjects = [
     kind: 'Ericsson',
     location: 'Lund, Sweden',
     active: '2024 - 2026',
-    text: 'Worked on a master thesis project in collaboration with Ericsson, focused on technical development and evaluation.',
+    text: 'Developed a Unity-based XR/AI pipeline that enables a virtual avatar to interpret objects in a 3D scene, to explore how AI-generated human motion can be grounded into interactive virtual environments.',
     bullets: [
       'Developed and evaluated technical solutions within the thesis scope.',
       'Collaborated with supervisors and industry stakeholders throughout the project.',
