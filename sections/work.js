@@ -29,12 +29,13 @@ export const workHtml = `
             <div class="project-active">2021 - 2026</div>
           </div>
           <p>
-            Higher education in computer science and engineering with focus on technical depth, systems thinking, and applied problem solving.
+            A five-year Master of Science in Computer Science and Engineering program with a specialization in Artificial Intelligence. During my studies, I strengthened my teamwork and problem-solving skills through large-scale projects involving AI, embedded systems, computer vision, and robotics.
           </p>
           <div class="meta">
             <span>Computer Science</span>
             <span>Engineering</span>
-            <span>Master's Degree</span>
+            <span>Embedded systems</span>
+            <span>AI</span>
           </div>
         </article>
 
@@ -48,9 +49,10 @@ export const workHtml = `
             <div class="project-active">2025</div>
           </div>
           <p>
-            International exchange studies focused on broadening academic perspective and technical experience in a new educational environment.
+            International exchange studies that broadened my academic perspective and technical experience in a new educational environment. The studies focused on AI, robotics, and intelligent control, where I collaborated with students from different countries on technical coursework and projects, strengthening my cross-cultural communication, adaptability, and teamwork skills.
           </p>
           <div class="meta">
+            <span>AI</span>
             <span>Exchange Studies</span>
             <span>International Experience</span>
           </div>
