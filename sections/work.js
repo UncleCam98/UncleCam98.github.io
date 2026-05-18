@@ -13,9 +13,6 @@ export const workHtml = `
         <div>
           <h2>Higher Education</h2>
         </div>
-        <p>
-          Academic background, specialization, and degree details.
-        </p>
       </div>
 
       <div class="projects">

@@ -6,7 +6,7 @@ export const skillsHtml = `
           <h2>Skills</h2>
         </div>
         <p>
-          Click a technical skill to highlight the projects that use it.
+          Click a skill or area to highlight the projects that use it
         </p>
       </div>
 
