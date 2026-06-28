@@ -17,8 +17,8 @@ export const skillGroups = [
     skills: [
       { label: 'Embedded systems', representedProjects: ['Master in Computer Science and Engineering', 'Bachelor Thesis at Axis Communications'] },
       { label: 'AI', representedProjects: ['Master Thesis at Ericsson', 'Master in Computer Science and Engineering', 'Exchange Semester in Taiwan'] },
-      { label: 'Network communication', representedProjects: ['Master Thesis at Ericsson', 'Master in Computer Science and Engineering'] },
-      { label: 'Computer vision', representedProjects: ['Master Thesis at Ericsson', 'Master in Computer Science and Engineering', 'Exchange Semester in Taiwan'] },
+      { label: 'Network communication', representedProjects: ['Master Thesis at Ericsson', 'Summer Internship R&D', 'Master in Computer Science and Engineering'] },
+      { label: 'Computer vision', representedProjects: ['Master Thesis at Ericsson', 'Summer Internship R&D', 'Master in Computer Science and Engineering', 'Exchange Semester in Taiwan'] },
       { label: 'Extended reality', representedProjects: ['Master Thesis at Ericsson'] }
     ]
   },

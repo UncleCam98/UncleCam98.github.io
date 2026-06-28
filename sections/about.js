@@ -21,7 +21,7 @@ export const aboutHtml = `
         <div class="about-gallery-layout">
           <article class="timeline-card about-card about-card--gallery">
             <div class="about-gallery-head">
-              <h3>The XR Salento Conference in Otranto, Italy</h3>
+              <h3>XR Salento Conference in Otranto, Italy</h3>
               <p>
                 The XR Salento conference gave me the opportunity to present my master's thesis in an international conference setting, exchange ideas with researchers in XR and AI, and gain valuable feedback on my work.
               </p>
