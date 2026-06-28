@@ -587,19 +587,15 @@ body[data-page='work'] .hero-link:hover {
 
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 14px;
   align-items: stretch;
 }
 
-.about-stack {
+.about-gallery-layout {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-}
-
-.about-feature-stack {
-  display: grid;
-  gap: 14px;
+  align-items: start;
 }
 
 .about-card {
@@ -653,6 +649,14 @@ body[data-page='work'] .hero-link:hover {
 .about-photo--portrait {
   aspect-ratio: 3 / 5;
   min-height: clamp(320px, 34vw, 460px);
+}
+
+.about-photo-grid--xr .about-photo--portrait {
+  min-height: clamp(280px, 30vw, 400px);
+}
+
+.about-photo-grid--taipei .about-photo--portrait {
+  min-height: clamp(280px, 30vw, 400px);
 }
 
 .about-photo--wide {
@@ -1102,7 +1106,7 @@ footer {
   .timeline,
   .skill-card--full,
   .about-layout,
-  .about-feature-stack,
+  .about-gallery-layout,
   .about-photo-grid {
     grid-template-columns: 1fr;
   }
