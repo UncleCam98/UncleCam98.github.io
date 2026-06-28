@@ -18,7 +18,7 @@ export const workProjects = [
     location: 'Lund, Sweden',
     active: '2026',
     text: 'Investigated methods for estimating the real-world distance between a camera and a person from image data, enabling more accurate spatial measurements than those perceived from an image.',
-    stack: ['Computer Vision', 'Python', 'Git', 'Unity', 'Bluetooth', 'WiFi']
+    stack: ['Python', 'Git', 'Unity', 'Bluetooth', 'WiFi']
   },
   {
     title: 'Bachelor Thesis at Axis Communications',
