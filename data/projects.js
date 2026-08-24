@@ -16,8 +16,8 @@ export const projects = [
     stack: ['Largue Language Model', 'Machine Learning', 'Computer Vision', 'XR'],
     image: './assets/avatar.gif',
     actionLinks: [
-      { label: 'View Paper' },
-      { label: 'View Publication' }
+      { label: 'View Paper', href: 'http://www.diva-portal.org/smash/record.jsf?pid=diva2:2091451' },
+      { label: 'View Publication', href: 'https://www.xrsalento.it/paper-publication' }
     ]
   },
   {

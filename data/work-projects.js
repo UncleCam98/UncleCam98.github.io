@@ -17,7 +17,12 @@ export const workProjects = [
     kind: 'Ericsson',
     location: 'Lund, Sweden',
     active: '2026',
-    text: 'Investigated methods for estimating the real-world distance between a camera and a person from image data, enabling more accurate spatial measurements than those perceived from an image.',
+    text: 'Built a multimodal localization dataset and processing pipeline combining images, and radio measurements to investigate metric positioning and distance estimation.',
+    bullets: [
+      'Developed an Android-based data collection application for synchronized image, and radio measurements',
+      'Created a multimodal localization dataset across multiple indoor and outdoor environments',
+      'Developed and evaluated a radio-based distance estimation algorithm using RANSAC and curve fitting'
+    ],
     stack: ['Python', 'Git', 'Unity', 'Bluetooth', 'WiFi']
   },
   {
